@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 import os
 import psycopg2
 
@@ -16,13 +16,7 @@ def get_db_connection():
 
 @app.get("/")
 def home():
-    return jsonify(
-        {
-            "service": "DevOps Assignment Backend",
-            "status": "running",
-            "message": "Request successfully proxied through Nginx",
-        }
-    )
+    return render_template("index.html")
 
 
 @app.get("/health")
@@ -40,19 +34,16 @@ def db_test():
         cur.close()
         conn.close()
 
-        return jsonify(
-            {
-                "database": "connected",
-                "version": version,
-            }
-        )
+        return jsonify({
+            "database": "connected",
+            "version": version,
+        })
+
     except Exception as exc:
-        return jsonify(
-            {
-                "database": "error",
-                "message": str(exc),
-            }
-        ), 500
+        return jsonify({
+            "database": "error",
+            "message": str(exc),
+        }), 500
 
 
 if __name__ == "__main__":
