@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Infrastructure</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="container nav-content">
+        <div class="brand">
+            <span class="brand-icon">D</span>
+            <span>DevOps Infrastructure</span>
+        </div>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            All Systems Operational
+        </div>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">DEVOPS ASSIGNMENT</span>
+
+            <h1>
+                Infrastructure
+                <span>Monitoring Dashboard</span>
+            </h1>
+
+            <p>
+                A containerized application environment powered by
+                Docker, NGINX, PostgreSQL and Prometheus.
+            </p>
+
+            <div class="actions">
+                <a href="/health" class="btn primary">Check Health</a>
+                <a href="/db-test" class="btn secondary">Test Database</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">INFRASTRUCTURE</span>
+                <h2>Service Overview</h2>
+            </div>
+            <span class="live-label">
+                <span class="status-dot"></span>
+                Live
+            </span>
+        </div>
+
+        <div class="service-grid">
+
+            <div class="service-card">
+                <div class="card-top">
+                    <div class="service-icon nginx">N</div>
+                    <span class="online">ONLINE</span>
+                </div>
+                <h3>NGINX</h3>
+                <p>Reverse proxy and web server</p>
+                <div class="card-footer">
+                    <span>Port</span>
+                    <strong>80</strong>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="card-top">
+                    <div class="service-icon flask">A</div>
+                    <span class="online">ONLINE</span>
+                </div>
+                <h3>Backend API</h3>
+                <p>Flask application service</p>
+                <div class="card-footer">
+                    <span>Port</span>
+                    <strong>5000</strong>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="card-top">
+                    <div class="service-icon db">DB</div>
+                    <span class="online">ONLINE</span>
+                </div>
+                <h3>PostgreSQL</h3>
+                <p>Relational database service</p>
+                <div class="card-footer">
+                    <span>Port</span>
+                    <strong>5432</strong>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="card-top">
+                    <div class="service-icon prometheus">P</div>
+                    <span class="online">ONLINE</span>
+                </div>
+                <h3>Prometheus</h3>
+                <p>Infrastructure monitoring</p>
+                <div class="card-footer">
+                    <span>Port</span>
+                    <strong>9090</strong>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section architecture-section">
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">ARCHITECTURE</span>
+                <h2>Request Flow</h2>
+            </div>
+        </div>
+
+        <div class="architecture">
+
+            <div class="architecture-node">
+                <div class="node-icon">01</div>
+                <h3>Client</h3>
+                <p>Browser / HTTP Client</p>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="architecture-node">
+                <div class="node-icon">02</div>
+                <h3>NGINX</h3>
+                <p>Reverse Proxy</p>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="architecture-node">
+                <div class="node-icon">03</div>
+                <h3>Flask API</h3>
+                <p>Application Layer</p>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="architecture-node">
+                <div class="node-icon">04</div>
+                <h3>PostgreSQL</h3>
+                <p>Data Layer</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section endpoints-section">
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">API</span>
+                <h2>Available Endpoints</h2>
+            </div>
+        </div>
+
+        <div class="endpoint-list">
+            <a href="/" class="endpoint">
+                <span class="method get">GET</span>
+                <code>/</code>
+                <span>Infrastructure dashboard</span>
+            </a>
+
+            <a href="/health" class="endpoint">
+                <span class="method get">GET</span>
+                <code>/health</code>
+                <span>Application health check</span>
+            </a>
+
+            <a href="/db-test" class="endpoint">
+                <span class="method get">GET</span>
+                <code>/db-test</code>
+                <span>PostgreSQL connectivity test</span>
+            </a>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container footer-content">
+        <span>DevOps Assignment</span>
+        <span>Docker • NGINX • Flask • PostgreSQL • Prometheus</span>
+    </div>
+</footer>
+
+</body>
+</html>
