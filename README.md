@@ -861,3 +861,8 @@ Node Exporter
 Bash
 Git
 ```
+
+### Other noticiable Screenshot
+
+![prometheus](screenshots/prometheus.png)
+![cron](screenshots/cron.png)
