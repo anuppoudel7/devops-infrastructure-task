@@ -4,10 +4,10 @@ services:
       context: ./app
     container_name: devops_backend
     environment:
-      DB_HOST: db
-      POSTGRES_DB: devopsdb
-      POSTGRES_USER: devops
-      POSTGRES_PASSWORD: devopspass
+      DB_HOST: ${DB_HOST}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     depends_on:
       db:
         condition: service_healthy
@@ -18,13 +18,13 @@ services:
     image: postgres:16
     container_name: devops_db
     environment:
-      POSTGRES_DB: devopsdb
-      POSTGRES_USER: devops
-      POSTGRES_PASSWORD: devopspass
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U devops -d devopsdb"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 10s
       timeout: 5s
       retries: 5
